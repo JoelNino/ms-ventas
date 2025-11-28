@@ -1,3 +1,5 @@
+#ventas/services.py
+
 from .mongo import sales, sales_summary
 from datetime import datetime
 import requests
@@ -9,7 +11,7 @@ def registrar_venta(product_id, city, quantity, unit_price):
     total_value = quantity * unit_price
     now = datetime.utcnow()
 
-    # 1. Guardar venta cruda
+    # 1. Guardar venta 
     sales.insert_one({
         "product_id": product_id,
         "city": city,
