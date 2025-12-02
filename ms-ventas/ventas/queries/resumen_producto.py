@@ -4,7 +4,8 @@ from ventas.mongo import sales_summary
 import requests
 import os
 
-INVENTORY_MS_URL = "http://127.0.0.1:8001"
+# Leer URL del microservicio de inventario desde variable de entorno
+INVENTORY_MS_URL = os.getenv("INVENTORY_MS_URL", "http://127.0.0.1:8001")
 
 @api_view(["GET"])
 def resumen_producto(request, product_id):
